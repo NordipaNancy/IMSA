@@ -5,8 +5,8 @@ pipeline {
       
 	  stage('Compile') {
          steps {
-            cmd 'javac Main.java'
-			cmd 'java Main'
+            bat 'javac Main.java'
+			bat 'java Main'
          }
       }
       
