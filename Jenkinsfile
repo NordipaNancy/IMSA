@@ -9,6 +9,13 @@ pipeline {
 			bat 'java Main'
          }
       }
+	  
+	  stage('Test') {
+         steps {
+            mvn 'Arquillian-Test-Bloquant'
+			
+         }
+      }
       
      stage('Hello2') {
          steps {
