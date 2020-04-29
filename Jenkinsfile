@@ -2,9 +2,10 @@ pipeline {
    agent any
 
    stages {
-      stage('Hello1') {
+      stage('Compile') {
          steps {
-            echo 'Hello World1'
+            javac Main.java
+			java Main
          }
       }
       
