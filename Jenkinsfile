@@ -13,7 +13,7 @@ pipeline {
 	  stage('Test') {
          steps {
 			dir('Arquillian-Test-Bloquant')
-            mvn '-P test -Dmaven.test.failure.ignore=true'
+            mvn '-Dmaven.test.failure.ignore=true'
 			
          }
       }
