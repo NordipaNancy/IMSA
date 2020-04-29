@@ -12,7 +12,8 @@ pipeline {
 	  
 	  stage('Test') {
          steps {
-            mvn 'Arquillian-Test-Bloquant'
+			dir('Arquillian-Test-Bloquant')
+            mvn 'test'
 			
          }
       }
