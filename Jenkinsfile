@@ -12,9 +12,10 @@ pipeline {
 	  
 	  stage('Test') {
          steps {
-			dir('iMSA-PIPELINE1/Arquillian-Test-Bloquant')
+			dir('/Arquillian-Test-Bloquant'){
        //     mvn '-Dmaven.test'
 			 mvn '-Dtest=Arquillian-Test-Bloquant'	
+			 }
          }
       }
       
