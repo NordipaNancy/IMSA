@@ -13,8 +13,8 @@ pipeline {
 	  stage('Test') {
          steps {
 			dir('Arquillian-Test-Bloquant')
-            mvn '-Dmaven.test'
-			
+       //     mvn '-Dmaven.test'
+			 mvn '-Dtest=Arquillian-Test-Bloquant'	
          }
       }
       
