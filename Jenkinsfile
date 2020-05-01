@@ -1,5 +1,10 @@
 pipeline {
    agent any
+   
+   options { 
+        checkoutToSubdirectory('scripts') 
+        
+    }
 
    stages {
       
