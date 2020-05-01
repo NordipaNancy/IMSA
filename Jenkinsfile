@@ -20,7 +20,7 @@ pipeline {
 			//dir('Arquillian-Test-Bloquant'){
 			//bat 'cd Arquillian-Test-Bloquant/'{
 			//catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE')
-			catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE')
+			catchError(catchInterruptions: false)
 			{
 			 bat 'mvn -f Arquillian-Test-Bloquant/pom.xml test'
 			 //bat 'mvn -f --fail -at -end Arquillian-Test-Bloquant/pom.xml test'
@@ -28,7 +28,8 @@ pipeline {
 			 //mvn '-Dtest=Arquillian-Test-Bloquant'	
 			 //mvn '-P CalculatorTest -Dmaven.test.failure.ignore=true verify'
 			 }
-         }
+			 
+		}
       }
       
      stage('Hello2') {
