@@ -10,7 +10,7 @@ pipeline {
          }
       }
 	  
-	  stage('Test') {
+	  stage('TestArquillian') {
          steps {
 			dir('/Arquillian-Test-Bloquant'){
        //     mvn '-Dmaven.test'
