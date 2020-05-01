@@ -22,7 +22,7 @@ pipeline {
 			catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE')
 			//catchError(catchInterruptions: false)
 			{
-			 bat 'mvn -f Arquillian-Test-Bloquant/pom.xml clean'
+			 bat 'mvn -f Arquillian-Test-Bloquant/pom.xml test'
 			 //bat 'mvn -f --fail -at -end Arquillian-Test-Bloquant/pom.xml test'
 			 //mvn "test"
 			 //mvn '-Dtest=Arquillian-Test-Bloquant'	
