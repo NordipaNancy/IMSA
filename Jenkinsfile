@@ -14,7 +14,7 @@ pipeline {
          steps {
 			//dir('Arquillian-Test-Bloquant'){
 			//bat 'cd Arquillian-Test-Bloquant/'{
-			catchError(buildResult: 'null', stageResult: 'null')
+			catchError(buildResult: 'NOT_BUILT', stageResult: 'NOT_BUILT')
 			{
 			 bat 'mvn -f Arquillian-Test-Bloquant/pom.xml test'
 			 //mvn "test"
