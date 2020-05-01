@@ -12,8 +12,8 @@ pipeline {
 	  
 	  stage('TestArquillian') {
          steps {
-			//dir('Arquillian-Test-Bloquant'){
-			bat 'cd Arquillian-Test-Bloquant'{
+			dir('Arquillian-Test-Bloquant'){
+			//bat 'cd Arquillian-Test-Bloquant'{
 			 mvn 'test'
 			 //mvn '-Dtest=Arquillian-Test-Bloquant'	
 			 //mvn '-P CalculatorTest -Dmaven.test.failure.ignore=true verify'
