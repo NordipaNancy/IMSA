@@ -18,10 +18,10 @@ pipeline {
 	  stage('TestArquillian') {
          steps {
 			
-			catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE')
+			catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
 			
 			 bat 'mvn -f Arquillian-Test-Bloquant/pom.xml test'
-						 
+			}			 
 		}
       }
       
