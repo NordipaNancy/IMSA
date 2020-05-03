@@ -30,11 +30,11 @@ pipeline {
          }
       }
 
-	stage('CleanWorkspace') {
-            steps {
-                cleanWs()
-            }
-        }
+//	stage('CleanWorkspace') {
+//            steps {
+//                cleanWs()
+//            }
+//        }
 		
    }
  }  
