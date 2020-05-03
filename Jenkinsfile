@@ -28,12 +28,14 @@ pipeline {
          steps {
             echo 'Hello World2'
          }
-      }  
-   }
-   
-    stage('CleanWorkspace') {
+      }
+
+	stage('CleanWorkspace') {
             steps {
                 cleanWs()
             }
         }
-}
+		
+   }
+ }  
+
