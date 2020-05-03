@@ -14,11 +14,10 @@ public final class CalculatorTest {
         assertEquals(1, Calculator.div(3, 2));
     }
 
-    //@Test(expected = ArithmeticException.class)
-    @Test
+    @Test(expected = ArithmeticException.class)
     public void testDivParZero() {
-        //assertEquals(1, Calculator.divParZero(0, 5));
-        Calculator.divParZero(0, 5);
+        //assertEquals(1, Calculator.divParZero(5, 0));
+        Calculator.divParZero(5, 0);
     }
 
 }
