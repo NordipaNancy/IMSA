@@ -19,9 +19,8 @@ pipeline {
          steps {
 			
 			catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-			
 			 bat 'mvn -f Arquillian-Test-Bloquant/pom.xml test'
-			}			 
+			  }
 		}
       }
       
@@ -31,4 +30,10 @@ pipeline {
          }
       }  
    }
+   
+    post { 
+        always { 
+            cleanWs()
+        }
+    }
 }
