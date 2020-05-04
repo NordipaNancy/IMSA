@@ -36,17 +36,7 @@ pipeline {
             echo 'Hello Matthieu'
          }
       }
-
-     //stage('Consolidation des tests') {
-     //  	  steps {
-       	    
-       	    // TODO Amar : faire marcher cette étape
-       	    
-          	// junit 'sg2-integration/tests-integration/tests-integration-arquillian/target/**/TEST-*.xml'
-          	// junit 'sg2-integration/tests-integration/tests-integration-auto/target/classes/target/junit-result.xml'
-       //   }
-      // }
-		
+	
    }
  }  
 
