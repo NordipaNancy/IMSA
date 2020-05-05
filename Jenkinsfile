@@ -1,14 +1,15 @@
 pipeline {
    agent any
-   
+   script{
+	 int nombreStage = 0
+   }
    options { 
         checkoutToSubdirectory('scripts') 
         
     }
 
    stages {
-      int nombreStage = 0
-	  
+     
 	  stage('Compile') {
          steps {
             bat 'javac Main.java'
