@@ -1,6 +1,6 @@
 pipeline {
    
-   def numberStageFailed = true
+   int numberStageFailed = 0;
    
    agent any
  
