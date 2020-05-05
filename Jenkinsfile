@@ -13,7 +13,6 @@ pipeline {
 		 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
             bat 'javac Main.java'
 			bat 'java Main'
-			nombreStage++
 			}
          }
       }
@@ -23,8 +22,7 @@ pipeline {
 			
 			catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
 			 bat 'mvn -f Arquillian-Test-Bloquant/pom.xml test'
-			 nombreStage++
-			  }
+			 }
 		}
       }
   
@@ -33,7 +31,6 @@ pipeline {
          steps {
 			catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
             echo 'Hello World2'
-			nombreStage++
 			}
          }
       }
