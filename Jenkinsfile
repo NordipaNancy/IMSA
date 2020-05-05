@@ -1,13 +1,16 @@
 pipeline {
+   
+   def numberStageFailed = 0
    agent any
  
+			
 	options { 
         checkoutToSubdirectory('scripts') 
     }
 
    stages {
      
-	  stage('Compile Bersi') {
+	  stage('Compile') {
          steps {
 		 
 		 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
@@ -54,6 +57,7 @@ pipeline {
 		post {
                 success {
                     echo 'Hello2 Bersi stage successful'
+					
                 }
                 failure {
                     echo 'Hello2 Bersi stage failed'
@@ -77,6 +81,6 @@ pipeline {
          }
       }
 	}
-   }
- }  
+ }
+ }   
 
