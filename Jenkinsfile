@@ -5,8 +5,6 @@ pipeline {
         checkoutToSubdirectory('scripts') 
     }
 
-	def didFailure = 0
-
    stages {
      
 	  stage('Compile') {
