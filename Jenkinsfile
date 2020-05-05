@@ -1,6 +1,9 @@
 pipeline {
    
-   int numberStageFailed = 0;
+   
+   def numberStageFailed() {
+    bat "set numberStageFailed = 0"
+	}
    
    agent any
  
