@@ -43,7 +43,8 @@ pipeline {
 					def tabStageResult = []
 					
                     for (int i = 0; i < tabStage.size(); ++i) {
-						if(tabStage[i] == tabStage[i].('FAILURE'))
+					
+						if(tabStage[i] == tabStage[i].("FAILURE"))
 							echo "c'est pas bien ${tabStage[i]} est en erreur"
                     }
          }
