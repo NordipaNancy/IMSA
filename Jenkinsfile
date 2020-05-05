@@ -1,97 +1,66 @@
-def numberStageFailed() {
-    bat "set numberStageFailed = 0"
-	}
-
 
 pipeline {
      
    
    agent any
- 
-			
+ 			
 	options { 
         checkoutToSubdirectory('scripts') 
     }
+
+	environment { 
+        //SOCLE_REPOSITORY = 'https://git.agora.msanet/stc/g2/sg2-root.git'
+        //APPLI_REPOSITORY = 'https://git.agora.msanet/stc/g2/sg2-integration.git'
+        //G_M2_SETTINGS_FILE = "$WORKSPACE/scripts/maven/settings-jenkins.xml"
+        //M2_DIFFUSION = " "
+        //JDK6_HOME = 'D:\\\\jdk1.6.0_24'
+        MAVEN_OPTS = '-Xms256m -Xmx1024m'
+        //M2_REPO = 'D:\\data\\soft\\icw\\apache-maven-3.0.3\\m2repo-stc'
+		M2_REPO = 'D:\\platformsg2_R_64\\.m2\\repository'
+    }    
+	tools {
+      jdk 'JDK 1.8.0_251'
+  	  maven 'Maven 3.6.3'
+	  }	  
 
    stages {
      
 	  stage('Compile') {
          steps {
 		 
-		 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-            bat 'javac Main.java'
+		    bat 'javac Main.java'
 			bat 'java Main'
 			}
-			
-         }
-		post {
-                success {
-                    echo 'Compile Bersi stage successful'
-                }
-                failure {
-                    echo 'Compile Bersi stage failed'
-					bat "set numberStageFailed = 1"
-                }
-            } 
-	   }
+		}
+	   
 	  
 	  stage('TestArquillian') {
          steps {
-			
-			catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+
 			 bat 'mvn -f Arquillian-Test-Bloquant/pom.xml test'
-			 }
-		}
 		
-		post {
-                success {
-                    echo 'TestArquillian Bersi stage successful'
-                }
-                failure {
-                    echo 'TestArquillian Bersi stage failed'
-					bat "set numberStageFailed = 2"
-                }
             }
 		}
   
   
      stage('Hello2') {
          steps {
-			catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+			
             echo 'Hello World2'
-			}
+			
          }
-		 
-		post {
-                success {
-                    echo 'Hello2 Bersi stage successful'
-					
-                }
-                failure {
-                    echo 'Hello2 Bersi stage failed'
-					bat "set numberStageFailed = 3"
-                }
-            } 
-
-      }
+	}
 	  
 	  stage('Hello Matthieu') {
          steps {
             echo 'Hello Matthieu'
-			script {
-                    def tabStage = ['Compile', 'TestArquillian', 'Hello2']
-					def tabStageResult = []
-					
-                    for (int i = 0; i < tabStage.size(); ++i) {
-					
-						//if(tabStage[i].catchError().stageResult() == "FAILURE")
-							echo "c'est pas bien ${tabStage[i]} est en erreur"
-							echo " nombre erreurs " + numberStageFailed
-                    }
+			echo "c'est pas bien il y a des erreurs"
+							
+                }
          }
       }
-	}
- }
- }   
+}
+ 
+    
  
 
