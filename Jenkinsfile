@@ -41,7 +41,8 @@ pipeline {
 			script {
                     def tabStage = ['Compile', 'TestArquillian', 'Hello2']
                     for (int i = 0; i < tabStage.size(); ++i) {
-                        echo "Testing the ${tabStage[i]} erreur"
+						if(tabStage[i] == 'FAILURE')
+                        echo "c'est pas bien ${tabStage[i]} est en erreur"
                     }
          }
       }
