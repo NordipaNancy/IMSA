@@ -7,7 +7,7 @@ pipeline {
 
    stages {
      
-	  stage('Compile') {
+	  stage('Compile Bersi') {
          steps {
 		 
 		 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
@@ -17,10 +17,10 @@ pipeline {
          }
 		post {
                 success {
-                    echo 'Compile bersi stage successful'
+                    echo 'Compile Bersi stage successful'
                 }
                 failure {
-                    echo 'Compile stage failed'
+                    echo 'Compile Bersi stage failed'
                 }
             } 
 	   }
@@ -32,7 +32,16 @@ pipeline {
 			 bat 'mvn -f Arquillian-Test-Bloquant/pom.xml test'
 			 }
 		}
-      }
+		
+		post {
+                success {
+                    echo 'TestArquillian Bersi stage successful'
+                }
+                failure {
+                    echo 'TestArquillian Bersi stage failed'
+                }
+            }
+		}
   
   
      stage('Hello2') {
@@ -41,6 +50,16 @@ pipeline {
             echo 'Hello World2'
 			}
          }
+		 
+		post {
+                success {
+                    echo 'Hello2 Bersi stage successful'
+                }
+                failure {
+                    echo 'Hello2 Bersi stage failed'
+                }
+            } 
+
       }
 	  
 	  stage('Hello Matthieu') {
@@ -52,7 +71,7 @@ pipeline {
 					
                     for (int i = 0; i < tabStage.size(); ++i) {
 					
-						if(tabStage[i].catchError().stageResult() == "FAILURE")
+						//if(tabStage[i].catchError().stageResult() == "FAILURE")
 							echo "c'est pas bien ${tabStage[i]} est en erreur"
                     }
          }
