@@ -5,6 +5,8 @@ pipeline {
         checkoutToSubdirectory('scripts') 
     }
 
+	def didFailure = 0
+
    stages {
      
 	  stage('Compile') {
@@ -40,8 +42,10 @@ pipeline {
             echo 'Hello Matthieu'
 			script {
                     def tabStage = ['Compile', 'TestArquillian', 'Hello2']
+					def tabStageResult = []
+					
                     for (int i = 0; i < tabStage.size(); ++i) {
-						if(tabStage[i].equals 'FAILURE')
+						if(tabStage[i] == tabStage[i].('FAILURE')
 							echo "c'est pas bien ${tabStage[i]} est en erreur"
                     }
          }
