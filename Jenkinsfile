@@ -39,9 +39,9 @@ pipeline {
          steps {
             echo 'Hello Matthieu'
 			script {
-                    def tabStage = [nombreStage]
-                    for (int i = 0; i < nombreStage.size(); ++i) {
-                        echo "Testing the ${nombreStage[i]} erreur"
+                    def tabStage = ['IE', 'EDGE', 'SAFARI']
+                    for (int i = 0; i < tabStage.size(); ++i) {
+                        echo "Testing the ${tabStage[i]} erreur"
                     }
          }
       }
