@@ -44,7 +44,7 @@ pipeline {
 					
                     for (int i = 0; i < tabStage.size(); ++i) {
 					
-						if(tabStage[i].catchError.stageResult() == "FAILURE")
+						if(tabStage[i].catchError().stageResult() == "FAILURE")
 							echo "c'est pas bien ${tabStage[i]} est en erreur"
                     }
          }
