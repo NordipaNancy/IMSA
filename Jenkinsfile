@@ -1,9 +1,10 @@
-pipeline {
-   
-   
-   def numberStageFailed() {
+def numberStageFailed() {
     bat "set numberStageFailed = 0"
 	}
+
+
+pipeline {
+     
    
    agent any
  
