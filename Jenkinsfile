@@ -7,11 +7,13 @@ pipeline {
     }
 
    stages {
-      
+      int nombreStage = 0
+	  
 	  stage('Compile') {
          steps {
             bat 'javac Main.java'
 			bat 'java Main'
+			nombreStage++
          }
       }
 	  
@@ -20,6 +22,7 @@ pipeline {
 			
 			catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
 			 bat 'mvn -f Arquillian-Test-Bloquant/pom.xml test'
+			 nombreStage++
 			  }
 		}
       }
@@ -28,6 +31,7 @@ pipeline {
      stage('Hello2') {
          steps {
             echo 'Hello World2'
+			nombreStage++
          }
       }
 	  
@@ -35,9 +39,9 @@ pipeline {
          steps {
             echo 'Hello Matthieu'
 			script {
-                    def browsers = ['chrome', 'firefox']
-                    for (int i = 0; i < browsers.size(); ++i) {
-                        echo "Testing the ${browsers[i]} browser"
+                    def tabStage = [nombreStage]
+                    for (int i = 0; i < nombreStage.size(); ++i) {
+                        echo "Testing the ${nombreStage[i]} erreur"
                     }
          }
       }
