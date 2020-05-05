@@ -22,6 +22,7 @@ pipeline {
             bat 'javac Main.java'
 			bat 'java Main'
 			}
+			
          }
 		post {
                 success {
@@ -29,6 +30,7 @@ pipeline {
                 }
                 failure {
                     echo 'Compile Bersi stage failed'
+					bat "set numberStageFailed = 1"
                 }
             } 
 	   }
@@ -47,6 +49,7 @@ pipeline {
                 }
                 failure {
                     echo 'TestArquillian Bersi stage failed'
+					bat "set numberStageFailed = 2"
                 }
             }
 		}
@@ -66,6 +69,7 @@ pipeline {
                 }
                 failure {
                     echo 'Hello2 Bersi stage failed'
+					bat "set numberStageFailed = 3"
                 }
             } 
 
@@ -82,10 +86,12 @@ pipeline {
 					
 						//if(tabStage[i].catchError().stageResult() == "FAILURE")
 							echo "c'est pas bien ${tabStage[i]} est en erreur"
+							echo " nombre erreurs " + numberStageFailed
                     }
          }
       }
 	}
  }
  }   
+ 
 
