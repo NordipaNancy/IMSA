@@ -39,7 +39,7 @@ pipeline {
          steps {
             echo 'Hello Matthieu'
 			script {
-                    def tabStage = ['IE', 'EDGE', 'SAFARI']
+                    def tabStage = ['Compile', 'TestArquillian', 'Hello2']
                     for (int i = 0; i < tabStage.size(); ++i) {
                         echo "Testing the ${tabStage[i]} erreur"
                     }
