@@ -1,20 +1,20 @@
 pipeline {
    agent any
-   script{
-	 int nombreStage = 0
-   }
-   options { 
+ 
+	options { 
         checkoutToSubdirectory('scripts') 
-        
     }
 
    stages {
      
 	  stage('Compile') {
          steps {
+		 
+		 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
             bat 'javac Main.java'
 			bat 'java Main'
 			nombreStage++
+			}
          }
       }
 	  
@@ -31,8 +31,10 @@ pipeline {
   
      stage('Hello2') {
          steps {
+			catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
             echo 'Hello World2'
 			nombreStage++
+			}
          }
       }
 	  
