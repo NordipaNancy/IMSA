@@ -15,7 +15,15 @@ pipeline {
 			bat 'java Main'
 			}
          }
-      }
+		post {
+                success {
+                    echo 'Compile bersi stage successful'
+                }
+                failure {
+                    echo 'Compile stage failed'
+                }
+            } 
+	   }
 	  
 	  stage('TestArquillian') {
          steps {
