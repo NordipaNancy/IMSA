@@ -40,7 +40,7 @@ pipeline {
 
 			 bat 'mvn -f Arquillian-Test-Bloquant/pom.xml test'
 			 bat 'mvn -P test -Dmaven.test.failure.ignore=true verify'
-			junit 'target/**/TEST-*.xml'	
+			 junit 'target/**/TEST-*.xml'	
             }
 		}
   
@@ -57,10 +57,16 @@ pipeline {
          steps {
             echo 'Hello Matthieu'
 			echo "c'est pas bien il y a des erreurs"
-							
+					
                 }
          }
       }
+//	  post {
+//        always {
+//            archive "target/**/*"
+//            junit 'target/surefire-reports/*.xml'
+//        }
+//    }
 }
  
     
