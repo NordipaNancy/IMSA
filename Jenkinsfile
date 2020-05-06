@@ -43,12 +43,11 @@ pipeline {
 			 junit 'target/**/TEST-*.xml'
 			}
 			
-            } catch(Exception error) {
+			} catch(Exception error) {
 				currentBuild.result = 'SUCCESS'
 				return
-			
-		}
-  
+			}
+	}
   
      stage('Hello2') {
          steps {
