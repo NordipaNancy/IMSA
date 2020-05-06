@@ -43,6 +43,7 @@ pipeline {
 			 junit 'target/**/TEST-*.xml'
 				}
 			}
+			}
 			} catch(Exception error) {
 				currentBuild.result = 'SUCCESS'
 				return
