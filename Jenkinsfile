@@ -34,7 +34,7 @@ pipeline {
 			}
 		}
 	   
-	 
+	 try{
 	  stage('TestArquillian') {
           steps {
 
@@ -43,6 +43,9 @@ pipeline {
 			 junit 'target/**/TEST-*.xml'
 			}	
 		}
+		}catch (Exception exception){
+	return
+	}	
   
      stage('Hello2') {
          steps {
