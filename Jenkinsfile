@@ -1,3 +1,4 @@
+import hudson.tasks.test.AbstractTestResultAction
 
 pipeline {
      
@@ -37,8 +38,9 @@ pipeline {
 	 
 	  stage('TestArquillian') {
           steps {
+		  
 		  script{
-		  def testResultAction = true
+			def AbstractTestResultAction testResultAction = currentBuild.rawBuild.getAction(AbstractTestResultAction.class)
 		  }
 
 			 bat 'mvn -f Arquillian-Test-Bloquant/pom.xml test'
