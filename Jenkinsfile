@@ -37,10 +37,11 @@ pipeline {
 	   
 	 
 	  stage('TestArquillian') {
-          step {
+          steps {
 		  
 		  script{
-		  	try{	  
+		  	
+			try{	  
 			
 			bat 'mvn -f Arquillian-Test-Bloquant/pom.xml test'
 			
