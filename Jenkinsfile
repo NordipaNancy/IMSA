@@ -26,7 +26,7 @@ pipeline {
 	//  }	 
 
 	environment { 
-		 TOTO = 'SUCCESS'
+		 TOTO = 'FAILED'
 	}
 	
 
