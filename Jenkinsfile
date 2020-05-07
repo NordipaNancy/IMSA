@@ -52,7 +52,7 @@ pipeline {
 			  //bat 'mvn -P test -Dmaven.test.failure.ignore=false'
 			  echo 'Bersi TestArquillian'
 			  
-			  bat 'mvn -P test -Dmaven.test.failure.ignore=true'
+			  mvn -P test -Dmaven.test.failure.ignore=true
 			}
 				}
 	  		}
