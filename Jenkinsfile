@@ -46,13 +46,7 @@ pipeline {
 		  
 		  		 
 			}
-	  post {
-        always {
-            archive "target/**/*"
-            junit 'target/surefire-reports/*.xml'
-        }
-    }
-			
+	  		
 		}
 		
   
@@ -62,7 +56,6 @@ pipeline {
             echo 'Hello World2'
 			
          }
-		
 	}
 	  
 	  stage('Hello Matthieu') {
@@ -73,7 +66,7 @@ pipeline {
                 }
 		      }
       }
-	  }
+	}
 	  post {
         always {
             archive "target/**/*"
