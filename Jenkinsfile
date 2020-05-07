@@ -43,7 +43,7 @@ pipeline {
 		  script{
 		  	
 			try{	  
-			
+			def currentBuild.result = 'SUCCESS'
 			bat 'mvn -f Arquillian-Test-Bloquant/pom.xml test'
 			
 			 //bat 'mvn -P test -Dmaven.test.failure.ignore=true verify'
@@ -51,8 +51,8 @@ pipeline {
 		  	}catch(Exception e){
 			  //bat 'mvn -P test -Dmaven.test.failure.ignore=false'
 			  echo 'Bersi TestArquillian'
-			  
-			  bat 'mvn -P test -Dmaven.test.failure.ignore=false'
+			  currentBuild.result = 'FAILURE'
+			  //bat 'mvn -P test -Dmaven.test.failure.ignore=true'
 			}
 				}
 	  		}
