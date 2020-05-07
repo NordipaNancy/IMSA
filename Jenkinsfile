@@ -42,7 +42,7 @@ pipeline {
 		  		  
 			bat 'mvn -f Arquillian-Test-Bloquant/pom.xml test'
 			 bat 'mvn -P test -Dmaven.test.failure.ignore=true verify'
-			 junit 'target/**/TEST-*.xml'
+			 //junit 'target/**/TEST-*.xml'
 		  
 		  		 
 			}	
