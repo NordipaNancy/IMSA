@@ -37,8 +37,8 @@ pipeline {
 	   
 	 
 	  stage('TestArquillian') {
-          steps {
-		  script{
+          script {
+		  step{
 		  	try{	  
 			
 			bat 'mvn -f Arquillian-Test-Bloquant/pom.xml test'
@@ -47,7 +47,7 @@ pipeline {
 		  	}catch(Exception e){
 			  //bat 'mvn -P test -Dmaven.test.failure.ignore=false'
 			  echo 'Bersi TestArquillian'
-			  echo e
+			  
 			  //bat 'mvn -P test -Dmaven.test.failure.ignore=true'
 			}
 				}
