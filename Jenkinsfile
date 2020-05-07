@@ -47,6 +47,7 @@ pipeline {
 		  	}catch(Exception e){
 			  //bat 'mvn -P test -Dmaven.test.failure.ignore=false'
 			  echo 'Bersi TestArquillian'
+			  echo e
 			  //bat 'mvn -P test -Dmaven.test.failure.ignore=true'
 			}
 				}
