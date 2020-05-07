@@ -63,10 +63,7 @@ pipeline {
 			
          }
 		 post {
-        always {
-            archive "target/**/*"
-            junit 'target/surefire-reports/*.xml'
-        }
+        
     }
 	}
 	  
@@ -76,21 +73,15 @@ pipeline {
 			echo "c'est pas bien il y a des erreurs"
 					
                 }
-				post {
+		      }
+      }
+	  }
+	  post {
         always {
             archive "target/**/*"
             junit 'target/surefire-reports/*.xml'
         }
     }
-         }
-      }
-	  }
-//	  post {
-//        always {
-//            archive "target/**/*"
-//            junit 'target/surefire-reports/*.xml'
-//        }
-//    }
 
  
     
