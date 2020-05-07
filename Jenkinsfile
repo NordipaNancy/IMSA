@@ -62,6 +62,12 @@ pipeline {
             echo 'Hello World2'
 			
          }
+		 post {
+        always {
+            archive "target/**/*"
+            junit 'target/surefire-reports/*.xml'
+        }
+    }
 	}
 	  
 	  stage('Hello Matthieu') {
@@ -70,6 +76,12 @@ pipeline {
 			echo "c'est pas bien il y a des erreurs"
 					
                 }
+				post {
+        always {
+            archive "target/**/*"
+            junit 'target/surefire-reports/*.xml'
+        }
+    }
          }
       }
 	  }
