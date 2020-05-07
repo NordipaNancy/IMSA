@@ -48,7 +48,7 @@ pipeline {
 		  }catch(Exception e){
 		  testResultAction = false
 		  
-		  return testResultAction
+		  //return testResultAction
 		  
 		  }
 
