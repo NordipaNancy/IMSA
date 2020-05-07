@@ -27,7 +27,7 @@ pipeline {
 
    stages {
      
-	  stage('Compile') {
+	  stage('Compile 1er stage') {
          steps {
 		 
 		    bat 'javac Main.java'
@@ -40,18 +40,19 @@ pipeline {
           steps {
 		  script{
 		  	try{	  
+			
 			bat 'mvn -f Arquillian-Test-Bloquant/pom.xml test'
 			 //bat 'mvn -P test -Dmaven.test.failure.ignore=true verify'
 			 //junit 'target/**/TEST-*.xml'
 		  	}catch(Exception e){
-			  echo 'TestArquillian'
+			  echo 'Bersi TestArquillian'
 			}
 				}
 	  		}
 		}
 		
   
-     stage('Hello2') {
+     stage('3eme stage') {
          steps {
 			
             echo 'Hello World2'
@@ -59,7 +60,7 @@ pipeline {
          }
 	}
 	  
-	  stage('Hello Matthieu') {
+	  stage('dernier stage') {
          steps {
             echo 'Hello Matthieu'
 			echo "c'est pas bien il y a des erreurs"
