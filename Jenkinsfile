@@ -26,7 +26,7 @@ pipeline {
 	//  }	 
 
 	environment { 
-		 TOTO = 'FAILED'
+		 TOTO = 'SUCCESS'
 	}
 	
 
@@ -56,7 +56,7 @@ pipeline {
 		  	}catch(Exception e){
 			  //bat 'mvn -P test -Dmaven.test.failure.ignore=false'
 			  echo 'Bersi TestArquillian'
-			  //${TOTO}
+			  ${TOTO}
 			  //bat 'mvn -P test -Dmaven.test.failure.ignore=true'
 			}
 				}
