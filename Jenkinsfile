@@ -32,7 +32,7 @@ pipeline {
 
    stages {
      
-	  stage('Compile 1er stage') {
+	  stage('1er stage') {
          steps {
 		 
 		    bat 'javac Main.java'
@@ -67,7 +67,15 @@ pipeline {
      stage('3eme stage') {
          steps {
 			
-            echo 'Hello World2'
+            echo 'Hello World3'
+			
+         }
+	}
+	
+	stage('4eme stage') {
+         steps {
+			
+            echo 'Hello World4'
 			
          }
 	}
