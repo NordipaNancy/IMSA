@@ -23,7 +23,12 @@ pipeline {
 	//tools {
     //  jdk 'JDK 1.8.0_251'
   	//  maven 'Maven 3.6.3'
-	//  }	  
+	//  }	 
+
+	environment { 
+		 currentBuild.result = 'FAILED'
+	}
+	
 
    stages {
      
@@ -41,7 +46,7 @@ pipeline {
 		  
 		  
 		  script{
-		  	def currentBuild.result = 'SUCCESS'
+		  	//def currentBuild.result = 'FAILED'
 			try{	  
 			
 			bat 'mvn -f Arquillian-Test-Bloquant/pom.xml test'
@@ -51,7 +56,7 @@ pipeline {
 		  	}catch(Exception e){
 			  //bat 'mvn -P test -Dmaven.test.failure.ignore=false'
 			  echo 'Bersi TestArquillian'
-			  currentBuild.result = 'FAILURE'
+			  ${currentBuild.result}
 			  //bat 'mvn -P test -Dmaven.test.failure.ignore=true'
 			}
 				}
