@@ -62,9 +62,7 @@ pipeline {
             echo 'Hello World2'
 			
          }
-		 post {
-        
-    }
+		
 	}
 	  
 	  stage('Hello Matthieu') {
