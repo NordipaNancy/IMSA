@@ -40,14 +40,15 @@ pipeline {
           steps {
 		  
 		  script{
-			//def AbstractTestResultAction testResultAction = currentBuild.rawBuild.getAction(AbstractTestResultAction.class)
+			def testResultAction = true
 		  try{
 			bat 'mvn -f Arquillian-Test-Bloquant/pom.xml test'
 			 bat 'mvn -P test -Dmaven.test.failure.ignore=true verify'
 			 junit 'target/**/TEST-*.xml'
 		  }catch(Exception e){
+		  testResultAction = false
 		  
-		  return
+		  return testResultAction
 		  
 		  }
 
