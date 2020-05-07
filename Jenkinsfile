@@ -54,7 +54,7 @@ pipeline {
 			 
 			}	
 		}
-		
+		}
   
      stage('Hello2') {
          steps {
