@@ -88,15 +88,15 @@ pipeline {
                 }
 		      }
       }
-	}
-	  //post {
-      //  always {
-      //      archive "target/**/*"
-      //      junit 'target/surefire-reports/*.xml'
-      //  }
-    //}
+	
+	  post {
+        always {
+            archive "target/**/*"
+            junit 'target/surefire-reports/*.xml'
+       }
+    }
 
- 
+ }
     
  
 
