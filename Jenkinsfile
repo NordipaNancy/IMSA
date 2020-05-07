@@ -45,8 +45,9 @@ pipeline {
 			 //bat 'mvn -P test -Dmaven.test.failure.ignore=true verify'
 			 //junit 'target/**/TEST-*.xml'
 		  	}catch(Exception e){
-			  echo 'Bersi TestArquillian'
 			  bat 'mvn -P test -Dmaven.test.failure.ignore=true'
+			  echo 'Bersi TestArquillian'
+			  //bat 'mvn -P test -Dmaven.test.failure.ignore=true'
 			}
 				}
 	  		}
