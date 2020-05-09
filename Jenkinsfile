@@ -49,7 +49,7 @@ pipeline {
 		  	//def currentBuild.result = 'FAILED'
 			
 			try{	  
-			dir('Arquillian-Test-Bloquant') {
+			dir('./Arquillian-Test-Bloquant') {
 			//bat 'mvn -f Arquillian-Test-Bloquant/pom.xml test'
 			
 			 bat 'mvn -P test -Dmaven.test.failure.ignore=true verify'
@@ -94,11 +94,11 @@ pipeline {
 		      }
       }
 	
-	  post {
+	 post {
         always {
-            archive "target/**/*"
-            junit 'target/surefire-reports/*.xml'
-       }
+            archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
+            junit 'build/reports/**/*.xml'
+        }
     }
 
  }
