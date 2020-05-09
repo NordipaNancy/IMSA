@@ -48,8 +48,8 @@ pipeline {
 		  script{
 		  	//def currentBuild.result = 'FAILED'
 			try{	  
-			
-			bat 'mvn -f Arquillian-Test-Bloquant/pom.xml test'
+			dir('Arquillian-Test-Bloquant') {
+			//bat 'mvn -f Arquillian-Test-Bloquant/pom.xml test'
 			
 			 bat 'mvn -P test -Dmaven.test.failure.ignore=true verify'
 			 //junit 'target/**/TEST-*.xml'
@@ -59,8 +59,9 @@ pipeline {
 			  //${TOTO}
 			  //bat 'mvn -P test -Dmaven.test.failure.ignore=true'
 			}
-				}
+			}
 	  		}
+			}
 		}
 		
   
